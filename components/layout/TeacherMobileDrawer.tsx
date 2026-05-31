@@ -16,7 +16,7 @@ export function TeacherMobileDrawer({ open, onClose }: TeacherMobileDrawerProps)
       closable={false}
       onClose={onClose}
       open={open}
-      width={288}
+      size={288}
       styles={{ body: { padding: 0 } }}
       className="teacher-drawer"
     >
