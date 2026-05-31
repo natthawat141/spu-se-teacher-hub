@@ -1,0 +1,13 @@
+.next/
+node_modules/
+*.log
+.DS_Store
+.vercel
+
+# env
+.env
+.env.local
+
+# local sqlite
+data/*.db
+
