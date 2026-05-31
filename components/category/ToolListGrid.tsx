@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Typography } from "antd";
-import { getCategoryTheme } from "@/lib/category-theme";
+import { ArrowUpRight } from "lucide-react";
 import { toolPath } from "@/lib/navigation";
 import type { ToolCategory } from "@/lib/tools-data";
 
@@ -13,27 +13,19 @@ type ToolListGridProps = {
 };
 
 export function ToolListGrid({ category }: ToolListGridProps) {
-  const theme = getCategoryTheme(category.id);
-
   return (
     <ul className="tool-list">
       {category.tools.map((tool, index) => (
         <li key={tool.id}>
           <Link href={toolPath(category.id, tool.id)} className="tool-list-item">
-            <span className="tool-list-index" style={{ color: theme.accent }}>
-              {String(index + 1).padStart(2, "0")}
-            </span>
+            <span className="tool-list-index">{String(index + 1).padStart(2, "0")}</span>
             <div className="tool-list-content">
               <Text strong className="tool-list-name">
                 {tool.name}
               </Text>
-              <Text type="secondary" className="tool-list-desc">
-                {tool.description}
-              </Text>
+              <Text className="tool-list-desc">{tool.description}</Text>
             </div>
-            <span className="tool-list-arrow" aria-hidden>
-              →
-            </span>
+            <ArrowUpRight className="tool-list-arrow" size={16} aria-hidden />
           </Link>
         </li>
       ))}

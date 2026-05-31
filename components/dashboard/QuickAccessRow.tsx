@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Typography } from "antd";
-import { getCategoryTheme } from "@/lib/category-theme";
 import { loadRecentTools } from "@/lib/navigation";
 import { useEffect, useState } from "react";
 
@@ -23,19 +22,11 @@ export function QuickAccessRow() {
         เปิดล่าสุด
       </Text>
       <div className="quick-access-list">
-        {recent.map((item) => {
-          const theme = getCategoryTheme(item.categoryId);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="quick-access-chip"
-              style={{ borderColor: theme.accent, color: theme.accent }}
-            >
-              {item.name}
-            </Link>
-          );
-        })}
+        {recent.map((item) => (
+          <Link key={item.href} href={item.href} className="quick-access-chip">
+            {item.name}
+          </Link>
+        ))}
       </div>
     </section>
   );

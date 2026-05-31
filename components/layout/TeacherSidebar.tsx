@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getCategoryTheme } from "@/lib/category-theme";
 import { getSelectedMenuKey } from "@/lib/navigation";
 import { TOOL_CATEGORIES } from "@/lib/tools-data";
 
@@ -31,22 +30,18 @@ export function TeacherSidebar({ onNavigate }: TeacherSidebarProps) {
       <div className="sidebar-nav-section">
         <span className="sidebar-nav-label">หมวดงาน</span>
         <ul className="sidebar-nav-list">
-          {TOOL_CATEGORIES.map((cat) => {
-            const theme = getCategoryTheme(cat.id);
-            return (
+          {TOOL_CATEGORIES.map((cat) => (
               <li key={cat.id}>
                 <SidebarLink
                   href={`/teacher/${cat.id}`}
                   active={selectedKey === cat.id}
-                  accent={theme.accent}
                   onNavigate={onNavigate}
                 >
                   <span className="sidebar-link-text">{cat.name}</span>
                   <span className="sidebar-link-count">{cat.tools.length}</span>
                 </SidebarLink>
               </li>
-            );
-          })}
+          ))}
         </ul>
       </div>
     </nav>
@@ -56,13 +51,11 @@ export function TeacherSidebar({ onNavigate }: TeacherSidebarProps) {
 function SidebarLink({
   href,
   active,
-  accent,
   onNavigate,
   children
 }: {
   href: string;
   active: boolean;
-  accent?: string;
   onNavigate?: () => void;
   children: React.ReactNode;
 }) {
@@ -70,7 +63,6 @@ function SidebarLink({
     <Link
       href={href}
       className={`sidebar-link${active ? " sidebar-link-active" : ""}`}
-      style={active && accent ? { ["--sidebar-accent" as string]: accent } : undefined}
       onClick={() => onNavigate?.()}
     >
       {children}

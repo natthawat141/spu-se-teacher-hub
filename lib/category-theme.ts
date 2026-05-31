@@ -1,22 +1,23 @@
 export type CategoryTheme = {
-  accent: string;
-  soft: string;
+  iconBg: string;
+  iconColor: string;
 };
 
+/** Neutral icon treatment — no rainbow category stripes */
 export const CATEGORY_THEMES: Record<string, CategoryTheme> = {
-  classroom: { accent: "#1E40AF", soft: "#EFF6FF" },
-  attendance: { accent: "#0F766E", soft: "#F0FDFA" },
-  scores: { accent: "#B45309", soft: "#FFFBEB" },
-  documents: { accent: "#7C3AED", soft: "#F5F3FF" },
-  sharing: { accent: "#0369A1", soft: "#F0F9FF" },
-  marketing: { accent: "#BE185D", soft: "#FDF2F8" },
-  schedule: { accent: "#4F46E5", soft: "#EEF2FF" },
-  project: { accent: "#0D9488", soft: "#F0FDFA" },
-  autograde: { accent: "#15803D", soft: "#F0FDF4" },
-  translate: { accent: "#9333EA", soft: "#FAF5FF" }
+  classroom: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  attendance: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  scores: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  documents: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  sharing: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  marketing: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  schedule: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  project: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  autograde: { iconBg: "#F5F5F4", iconColor: "#1C1917" },
+  translate: { iconBg: "#F5F5F4", iconColor: "#1C1917" }
 };
 
-const DEFAULT_THEME: CategoryTheme = { accent: "#E60012", soft: "#FFF1F2" };
+const DEFAULT_THEME: CategoryTheme = { iconBg: "#FFF1F2", iconColor: "#E60012" };
 
 export function getCategoryTheme(categoryId: string): CategoryTheme {
   return CATEGORY_THEMES[categoryId] ?? DEFAULT_THEME;

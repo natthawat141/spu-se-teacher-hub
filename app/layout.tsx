@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Noto_Sans_Thai } from "next/font/google";
 import { AntdProvider } from "@/components/providers/AntdProvider";
+import { InitialLoadSplash } from "@/components/ui/InitialLoadSplash";
 import "./globals.css";
 
 const notoSansThai = Noto_Sans_Thai({
@@ -21,7 +22,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="th" className={notoSansThai.variable}>
       <body className="min-h-dvh antialiased">
         <AntdRegistry>
-          <AntdProvider>{children}</AntdProvider>
+          <AntdProvider>
+            <InitialLoadSplash />
+            {children}
+          </AntdProvider>
         </AntdRegistry>
       </body>
     </html>

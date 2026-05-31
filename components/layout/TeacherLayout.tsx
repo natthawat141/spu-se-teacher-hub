@@ -2,6 +2,7 @@
 
 import { TeacherMobileDrawer } from "@/components/layout/TeacherMobileDrawer";
 import { SidebarBrand, TeacherSidebar } from "@/components/layout/TeacherSidebar";
+import { TeacherFooter } from "@/components/layout/TeacherFooter";
 import { TeacherHeader } from "@/components/layout/TeacherHeader";
 import { TOTAL_CATEGORIES, TOTAL_TOOLS } from "@/lib/tools-data";
 import { Grid, Layout } from "antd";
@@ -46,6 +47,7 @@ export function TeacherLayout({ children }: TeacherLayoutProps) {
         />
         <Content className="teacher-content">
           <div className="teacher-content-inner page-enter">{children}</div>
+          <TeacherFooter />
         </Content>
       </Layout>
     </Layout>
